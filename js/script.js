@@ -81,3 +81,24 @@ $(".read-more").click(function (e) {
         $(".read-more").html("Read More")
     }
 })
+$(".js-sroll-to-id").click(function (e) {
+    e.preventDefault()
+    var attr = $(this).attr("href");
+    var toEl = $(attr).offset().top;
+    console.log(toEl);
+    $("html").stop().animate({
+        scrollTop: toEl - $(".nav").outerHeight()
+    }, 500)
+})
+
+// появление стрелки
+$(window).on("scroll", function () {
+    // e.preventDefault()
+    let arrowPx = $(window).scrollTop();
+    if (arrowPx > 100) {
+        $(".js-btn-top").addClass("show").attr("href", "#")
+    } else if (arrowPx < 100) {
+        $(".js-btn-top").removeClass("show").attr("href", "#!")
+    }
+    // console.log(arrowPx);
+})
