@@ -102,3 +102,10 @@ $(window).on("scroll", function () {
     }
     // console.log(arrowPx);
 })
+// нажатие на стрелку
+$(".js-btn-top").click(function (e) {
+    e.preventDefault()
+    $("html").stop().animate({
+        scrollTop: 0
+    }, 500)
+})
